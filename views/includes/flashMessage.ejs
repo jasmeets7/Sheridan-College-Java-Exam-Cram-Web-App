@@ -1,0 +1,12 @@
+<div>
+    <% if(errorMessage != ""){ %>
+    <div class="alert alert-danger mt-5 ml-5" role="alert">
+        <%= errorMessage %>
+    </div>
+    <% } %>
+    <% if(successMessage != ""){ %>
+    <div class="alert alert-success mt-5 ml-5" role="alert">
+        <%= successMessage %>
+    </div>
+    <% } %>
+</div>

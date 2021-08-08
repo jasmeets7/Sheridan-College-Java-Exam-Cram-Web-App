@@ -1,0 +1,6 @@
+.gitattributes
+.gcloudignore
+app.yaml
+.DS_Store
+node_modules
+.idea

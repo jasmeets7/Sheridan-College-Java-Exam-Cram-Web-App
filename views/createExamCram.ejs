@@ -1,0 +1,29 @@
+<%- include('includes/head.ejs') %>
+<link href="/css/dashboard.css" rel="stylesheet" type="text/css"/>
+<link href="/css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<%- include('includes/flashMessage.ejs') %>
+<%- include('includes/topAdminNav.ejs') %>
+<div class="container-fluid">
+    <div class="row">
+        <%- include('includes/sideAdminNav.ejs') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Create a new Exam Cram</h1>
+            </div>
+            <form method="post" class="nav-form" action="/examCram/new">
+                <div class="form-group">
+                    <label>Exam Cram Name</label>
+                    <input type="text" class="form-control" name="examCramName" placeholder="Enter exam cram name">
+                </div>
+                <div class="form-group">
+                    <label>Exam Cram Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter exam cram password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </main>
+    </div>
+</div>
+<%- include('includes/end.ejs') %>

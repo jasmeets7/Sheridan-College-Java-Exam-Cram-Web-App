@@ -1,0 +1,40 @@
+<%- include('includes/head.ejs') %>
+<link href="/css/dashboard.css" rel="stylesheet" type="text/css"/>
+<link href="/css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<%- include('includes/flashMessage.ejs') %>
+<%- include('includes/topAdminNav.ejs') %>
+<div class="container-fluid">
+    <div class="row">
+        <%- include('includes/sideAdminNav.ejs') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Add a new Question to <%= examCramName %></h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label class="h6" for="typeOfQ">Select the Type of Question</label>
+                    <select onchange="selectType(this)" class="custom-select d-block w-100" id="typeOfQ" required="">
+                        <option value="">Choose...</option>
+                        <option value="0">Multiple Choice/ True False</option>
+                        <option value="1">Short/Problem Solving Questions</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid type.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <form method="POST" action="/newQuestion/<%= examCramName %>/<%= examCramID %>/0" id="mcqForm">
+                    </form>
+                    <form method="POST" action="/newQuestion/<%= examCramName %>/<%= examCramID %>/1" id="shortForm">
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="/js/count.js"></script>
+<%- include('includes/end.ejs') %>

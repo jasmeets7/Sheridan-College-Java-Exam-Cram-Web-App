@@ -1,0 +1,62 @@
+<%- include('includes/head.ejs') %>
+<link href="/css/dashboard.css" rel="stylesheet" type="text/css"/>
+<link href="/css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<%- include('includes/flashMessage.ejs') %>
+<%- include('includes/topAdminNav.ejs') %>
+<div class="container-fluid">
+    <div class="row">
+        <%- include('includes/sideAdminNav.ejs') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Edit MCQ/True-False Question</h1>
+            </div>
+
+            <div class="row">
+                <form method="post" action="/editQuestion/<%=examCramID%>/0" class="col-md-12 col-lg-12 col-sm-12">
+                <div class="mb-3">
+                    <label for="question">Enter your Question</label>
+                    <textarea class="form-control" rows="9" name="question" ><%=question%></textarea>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="radio" name="answer" value="a" <%if(answer=="a"){%>checked<%}%>>
+                        </div>
+                    </div>
+                    <textarea class="form-control" rows="1" name="option1" placeholder="Option 1"><%if(options[0]){%><%=options[0]%><%}%></textarea>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="radio" name="answer" value="b" <%if(answer=="b"){%>checked<%}%>>
+                        </div>
+                    </div>
+                    <textarea class="form-control" rows="1" name="option2" placeholder="Option 2"><%if(options[1]){%><%=options[1]%><%}%></textarea>
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="radio" name="answer" value="c" <%if(answer=="c"){%>checked<%}%>>
+                        </div>
+                    </div>
+                    <textarea class="form-control" rows="1" name="option3" placeholder="Option 3"><%if(options[2]){%><%=options[2]%><%}%></textarea>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="radio" name="answer" value="d" <%if(answer=="d"){%>checked<%}%>>
+                        </div>
+                    </div>
+                    <textarea class="form-control" rows="1" name="option4" placeholder="Option 4"><%if(options[3]){%><%=options[3]%><%}%></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="/js/count.js"></script>
+<%- include('includes/end.ejs') %>

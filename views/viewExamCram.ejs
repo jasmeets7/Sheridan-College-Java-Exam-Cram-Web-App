@@ -1,0 +1,57 @@
+<%- include('includes/head.ejs') %>
+<link href="/css/dashboard.css" rel="stylesheet" type="text/css"/>
+<link href="/css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<%- include('includes/flashMessage.ejs') %>
+<%- include('includes/topAdminNav.ejs') %>
+<div class="container-fluid">
+    <div class="row">
+        <%- include('includes/sideAdminNav.ejs') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2"><%= examCramName %></h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-primary float-left mr-1" href="/createQuestion/<%= examCramName %>/<%= examCramID %>">Add new
+                        question</a>
+                    <form method="post" action="/activate/<%= examCramID %>">
+                        <button class="btn btn-success float-left mr-1">Activate this exam cram</button>
+                    </form>
+                    <form method="post" action="/deactivate/<%= examCramID %>">
+                        <button class="btn btn-warning float-left mr-1">Deactivate this exam cram</button>
+                    </form>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger float-left mr-1" data-toggle="modal" data-target="#deleteModal">
+                        Delete
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete <%=examCramName%></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    You are about to delete an exam cram. Are you sure you want to delete it ?
+                                </div>
+                                <div class="modal-footer">
+                                    <form method="post" action="/deleteExamCram/<%= examCramID %>">
+                                        <button class="btn btn-secondary">Yes</button>
+                                    </form>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('includes/displayCramQuestions.ejs') %>
+        </main>
+    </div>
+</div>
+<%- include('includes/end.ejs') %>

@@ -1,0 +1,40 @@
+.login-body {
+
+    background: url('../img/dark-blue-master.jpg');
+
+}
+
+.login-body h2 {
+
+    color: #ffffff;
+
+}
+
+.login-body label {
+
+    color: #ffffff;
+
+}
+
+nav.navbar.navbar-expand-lg.navbar-dark {
+    background: url('../img/dark-blue-master.jpg');
+}
+
+.navbar-dark .navbar-brand {
+    color: #00b2ce !important;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+#sign-out {
+    position: absolute;
+    right: 0;
+}
+
+#sign-out li a {
+    color: #ffffff;
+}
+
+#sign-out li a:hover {
+    color: crimson;
+}

@@ -1,0 +1,62 @@
+<%- include('includes/head.ejs') %>
+<link href="/css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<%- include('includes/flashMessage.ejs') %>
+<nav class="navbar navbar-expand-lg navbar-dark py-4 mb-4">
+    <a class="navbar-brand" href="#">
+        Sheridan College | Java Exam Cram
+    </a>
+</nav>
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <% let counter = 0; %>
+            <% allQuestions[0].questions.forEach((currentQuestion)=>{ %>
+            <div class="jumbotron">
+                <div class="mb-0">
+                    <p class="h5" style="white-space: pre-wrap"><%= counter+1 %> ) <%= currentQuestion.question %></p>
+                    <% if(currentQuestion.options){ %>
+                        <% let optID = 0; %>
+                        <% currentQuestion.options.forEach((currentOption)=>{ %>
+                        <div class="custom-control custom-radio  ">
+                            <input id="id<%= counter %><%= optID %>" name="answer<%= counter %>" type="radio"
+                                   class="custom-control-input">
+                            <label style="white-space: pre-wrap" class="custom-control-label font-weight-bold"
+                                   for="id<%= counter %><%= optID %>"><%= currentOption %>
+                            </label>
+                        </div>
+                        <% optID++; %>
+                        <% }) %>
+
+                    <% } %>
+                    <a href="#" class="nav-link float-right btn-sm btn-primary mt-2 mr-2" data-toggle="collapse"
+                       data-target="#demo<%= counter %>">View Answer</a>
+                    <div id="demo<%= counter %>" class="collapse border border-primary p-3">
+                        <b>Answer : </b><br>
+                        <span  style="white-space: pre-wrap"><%= currentQuestion.answer %></span>
+                        <% if(currentQuestion.options){ %>
+
+                        <% if(currentQuestion.answer == "a"){ %>
+                                )&nbsp;<span  style="white-space: pre-wrap"><%= currentQuestion.options[0] %></span>
+                        <% } %>
+                        <% if(currentQuestion.answer == "b"){ %>
+                                )&nbsp;<span  style="white-space: pre-wrap"><%= currentQuestion.options[1] %></span>
+                        <% } %>
+                        <% if(currentQuestion.answer == "c"){ %>
+                                ) <span  style="white-space: pre-wrap">&nbsp;<%= currentQuestion.options[2] %></span>
+                        <% } %>
+                        <% if(currentQuestion.answer == "d"){ %>
+                                )&nbsp;<span  style="white-space: pre-wrap"><%= currentQuestion.options[3] %></span>
+                        <% } %>
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+            <% counter++; %>
+            <% }) %>
+        </div>
+    </div>
+</main>
+<%- include('includes/end.ejs') %>

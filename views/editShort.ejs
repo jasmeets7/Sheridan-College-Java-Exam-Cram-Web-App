@@ -1,0 +1,33 @@
+<%- include('includes/head.ejs') %>
+<link href="/css/dashboard.css" rel="stylesheet" type="text/css"/>
+<link href="/css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<%- include('includes/flashMessage.ejs') %>
+<%- include('includes/topAdminNav.ejs') %>
+<div class="container-fluid">
+    <div class="row">
+        <%- include('includes/sideAdminNav.ejs') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Edit Short/Long Question</h1>
+            </div>
+
+            <div class="row">
+                <form method="post" action="/editQuestion/<%=examCramID%>/1" class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="mb-3">
+                        <label for="question">Enter your Question</label>
+                        <textarea class="form-control" rows="9" name="question" ><%=question%></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="answer">Answer</label>
+                        <textarea class="form-control" rows="5" placeholder="Enter answer" name="answer"><%=answer%></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="/js/count.js"></script>
+<%- include('includes/end.ejs') %>

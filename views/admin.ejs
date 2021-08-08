@@ -1,0 +1,70 @@
+<%- include('includes/head.ejs') %>
+<link href="/css/dashboard.css" rel="stylesheet" type="text/css"/>
+<link href="/css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<%- include('includes/flashMessage.ejs') %>
+<%- include('includes/topAdminNav.ejs') %>
+<div class="container-fluid">
+    <div class="row">
+        <%- include('includes/sideAdminNav.ejs') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard</h1>
+
+            </div>
+            <section class="h6">
+                Number of Students DAVIS : <%= davisStudents.length %> <br><br>
+                Number of Students TRAFALGAR : <%= trafStudents.length %><br><br>
+            </section>
+            <h4>Davis students</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th># Student ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Campus</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% davisStudents.forEach((currentStudent)=>{ %>
+                        <tr>
+                            <td><%= currentStudent.student_id %></td>
+                            <td><%= currentStudent.first_name %></td>
+                            <td><%= currentStudent.last_name %></td>
+                            <td><%= currentStudent.campus %></td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Trafalgar students</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th># Student ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Campus</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% trafStudents.forEach((currentStudent)=>{ %>
+                        <tr>
+                            <td><%= currentStudent.student_id %></td>
+                            <td><%= currentStudent.first_name %></td>
+                            <td><%= currentStudent.last_name %></td>
+                            <td><%= currentStudent.campus %></td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+<%- include('includes/end.ejs') %>
